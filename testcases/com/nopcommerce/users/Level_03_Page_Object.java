@@ -37,7 +37,7 @@ public class Level_03_Page_Object {
     public void User_01_Register() {
         homePage.clickToRegisterLink();
         registerPage = new RegisterPageObject();
-        registerPage.clickToMaleRadion();
+        registerPage.clickToMaleRadio();
         registerPage.enterToFirstNameTextbox("");
         registerPage.enterToLastNameTextbox("");
         registerPage.enterToEmailTextbox("");
