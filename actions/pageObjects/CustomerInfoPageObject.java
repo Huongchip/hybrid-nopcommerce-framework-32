@@ -1,19 +1,38 @@
 package pageObjects;
 
-public class CustomerInfoPageObject {
+import commons.BasePage;
+import org.openqa.selenium.WebDriver;
+import pageUIs.CustomerInfoPageUI;
+
+public class CustomerInfoPageObject extends BasePage {
+    public CustomerInfoPageObject() {
+        this.driver = driver;
+    }
+
+    private WebDriver driver;
+
     public boolean isGenderMaleSelected() {
-        return false;
+        waitForElementSelected(driver, CustomerInfoPageUI.GENDER_MALE_RADIO);
+        return isElementSelected(driver, CustomerInfoPageUI.GENDER_MALE_RADIO);
     }
 
-    public boolean getFirstNameTextboxValue() {
-        return false;
+    public String getFirstNameTextboxValue() {
+        waitForElementVisible(driver, CustomerInfoPageUI.FIRST_NAME_TEXTBOX);
+        return getElementAttribute(driver, CustomerInfoPageUI.FIRST_NAME_TEXTBOX, "");
     }
 
-    public boolean getLastNameTextboxValue() {
-        return false;
+    public String getLastNameTextboxValue() {
+        waitForElementVisible(driver, CustomerInfoPageUI.LAST_NAME_TEXTBOX);
+        return getElementAttribute(driver, CustomerInfoPageUI.LAST_NAME_TEXTBOX, "");
     }
 
-    public boolean getEmailTextboxValue() {
-        return false;
+    public String getEmailTextboxValue() {
+        waitForElementVisible(driver, CustomerInfoPageUI.EMAIL_TEXTBOX);
+        return getElementAttribute(driver, CustomerInfoPageUI.EMAIL_TEXTBOX, "");
+    }
+
+    public String getCompanyTextboxValue() {
+        waitForElementVisible(driver, CustomerInfoPageUI.COMPANY_TEXTBOX);
+        return getElementAttribute(driver, CustomerInfoPageUI.COMPANY_TEXTBOX, "");
     }
 }

@@ -1,6 +1,15 @@
 package pageObjects;
 
-public class RegisterPageObject {
+import commons.BasePage;
+import org.openqa.selenium.WebDriver;
+
+public class RegisterPageObject extends BasePage {
+    public RegisterPageObject() {
+        this.driver = driver;
+    }
+
+    private WebDriver driver;
+
     public void clickToMaleRadio() {
     }
 
@@ -26,6 +35,7 @@ public class RegisterPageObject {
     }
 
     public byte[] getRegisterSuccessMessage() {
+        return new byte[0];
     }
 
     public void clickToLoginButton() {

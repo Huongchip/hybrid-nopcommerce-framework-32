@@ -3,9 +3,12 @@ package com.nopcommerce.users;
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.CustomerInfoPageObject;
 import pageObjects.HomePageObject;
@@ -14,9 +17,8 @@ import pageObjects.RegisterPageObject;
 
 import java.time.Duration;
 
-public class Level_03_Page_Object extends BaseTest {
+public class Level_04_Multiple_Browser extends BaseTest {
     //declare variable
-    private WebDriver driver;
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
     private LoginPageObject loginPage;
@@ -24,13 +26,11 @@ public class Level_03_Page_Object extends BaseTest {
     private CustomerInfoPageObject customerInfoPage;
     private String firstName, lastName, email, companyName, password;
 
+    @Parameters("browser")
     //Pre-Condition
     @BeforeClass
-    public void beforeClass() {
-        //Mở URL lên -> Qua HomePage
-        driver = new ChromeDriver();
-        driver.get("https://demo.nopcommerce.com/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+    public void beforeClass(String browserName) {
+        driver = getBrowserDriver(browserName);
         //Page đó đc sinh ra và bắt đầu làm những action của page đó
 
         homePage = new HomePageObject(driver);
