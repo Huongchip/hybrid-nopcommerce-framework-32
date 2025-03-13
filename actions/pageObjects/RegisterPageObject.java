@@ -2,6 +2,7 @@ package pageObjects;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
+import pageUIs.RegisterPageUI;
 
 public class RegisterPageObject extends BasePage {
     public RegisterPageObject() {
@@ -28,7 +29,9 @@ public class RegisterPageObject extends BasePage {
     public void enterToPasswordTextbox(String s) {
     }
 
-    public void enterToConfirmPasswordTextbox(String s) {
+    public void enterToConfirmPasswordTextbox(String password) {
+        waitForElementVisible(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX);
+        sendKeyToElement(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX, password);
     }
 
     public void clickToRegisterButton() {

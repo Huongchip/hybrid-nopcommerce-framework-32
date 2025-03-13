@@ -8,7 +8,7 @@ public class HomePageObject extends BasePage {
     private WebDriver driver;
 
     public HomePageObject(WebDriver driver) {
-        this.driver = this.driver;
+        this.driver = driver;
     }
 
     public void clickToRegisterLink() {
